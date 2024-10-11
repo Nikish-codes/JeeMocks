@@ -1,0 +1,15 @@
+.homepage-container {
+  text-align: center;
+  padding: 20px;
+}
+
+.test-selection {
+  margin-bottom: 20px;
+}
+
+.test-selection button {
+  margin: 5px;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+}

@@ -1,0 +1,38 @@
+{
+  "questions": [
+    {
+      "question_number": 1,
+      "subject": "Physics",
+      "topic": "Kinematics",
+      "question_value": {
+        "text": "A ball is thrown vertically upwards with a velocity of 10 m/s. What is the maximum height reached by the ball?",
+        "img_url": null
+      },
+      "options": [
+        "5 m",
+        "10 m",
+        "15 m",
+        "20 m"
+      ],
+      "correct_answer": 1,
+      "solution": "Using the formula h = v² / (2g), where g = 10 m/s², we find h = 10² / (2*10) = 5 m."
+    },
+    {
+      "question_number": 2,
+      "subject": "Mathematics",
+      "topic": "Calculus",
+      "question_value": {
+        "text": "Find the derivative of the function f(x) = x² + 5x + 6.",
+        "img_url": null
+      },
+      "options": [
+        "2x + 5",
+        "2x + 6",
+        "x² + 5",
+        "5x + 6"
+      ],
+      "correct_answer": 0,
+      "solution": "The derivative f'(x) = 2x + 5."
+    }
+  ]
+}

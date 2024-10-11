@@ -1,0 +1,39 @@
+{
+  "questions": [
+    {
+      "question_number": 1,
+      "subject": "Chemistry",
+      "topic": "Stoichiometry",
+      "question_value": {
+        "text": "What is the molarity of a solution containing 5 moles of solute in 2 liters of solution?",
+        "img_url": null
+      },
+      "options": [
+        "2.5 M",
+        "5 M",
+        "10 M",
+        "0.5 M"
+      ],
+      "correct_answer": 0,
+      "solution": "Molarity (M) = moles of solute / liters of solution = 5 moles / 2 L = 2.5 M."
+    },
+    {
+      "question_number": 2,
+      "subject": "Physics",
+      "topic": "Work and Energy",
+      "question_value": {
+        "text": "A 2 kg object is moving with a velocity of 3 m/s. What is its kinetic energy?",
+        "img_url": null
+      },
+      "options": [
+        "6 J",
+        "9 J",
+        "12 J",
+        "18 J"
+      ],
+      "correct_answer": 2,
+      "solution": "Kinetic Energy (KE) = 1/2 mv² = 1/2 * 2 kg * (3 m/s)² = 9 J."
+    }
+  ]
+}
+

@@ -1,0 +1,35 @@
+/* Add your CSS styles for the QuestionBank component here */
+.question-bank-container {
+    padding: 20px;
+  }
+  
+  .filters {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+  }
+  
+  .filters div {
+    margin: 0 10px;
+  }
+  
+  .question-list {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .question-item {
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin-bottom: 10px;
+  }
+  
+  .question-header {
+    display: flex;
+    justify-content: space-between;
+    font-weight: bold;
+  }
+  
+  .solution {
+    margin-top: 10px;
+  }

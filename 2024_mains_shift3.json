@@ -1,0 +1,38 @@
+{
+  "questions": [
+    {
+      "question_number": 1,
+      "subject": "Mathematics",
+      "topic": "Algebra",
+      "question_value": {
+        "text": "Solve for x: 2x + 5 = 15.",
+        "img_url": null
+      },
+      "options": [
+        "2",
+        "5",
+        "7",
+        "10"
+      ],
+      "correct_answer": 1,
+      "solution": "Subtract 5 from both sides: 2x = 10, then divide by 2: x = 5."
+    },
+    {
+      "question_number": 2,
+      "subject": "Biology",
+      "topic": "Cell Biology",
+      "question_value": {
+        "text": "What is the basic unit of life?",
+        "img_url": null
+      },
+      "options": [
+        "Tissue",
+        "Cell",
+        "Organ",
+        "Organism"
+      ],
+      "correct_answer": 1,
+      "solution": "The basic unit of life is the cell."
+    }
+  ]
+}

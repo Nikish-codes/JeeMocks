@@ -1,0 +1,18 @@
+.result-container {
+  text-align: center;
+  padding: 20px;
+}
+
+.score-summary {
+  margin-bottom: 20px;
+}
+
+.question-analysis {
+  border: 1px solid #ccc;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+.solution {
+  margin-top: 10px;
+}
