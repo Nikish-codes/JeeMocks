@@ -1,13 +1,15 @@
 {
   "files": {
-    "main.css": "/static/css/main.60cc6c66.css",
-    "main.js": "/static/js/main.a6483fb2.js",
-    "index.html": "/index.html",
-    "main.60cc6c66.css.map": "/static/css/main.60cc6c66.css.map",
-    "main.a6483fb2.js.map": "/static/js/main.a6483fb2.js.map"
-  },
-  "entrypoints": [
-    "static/css/main.60cc6c66.css",
-    "static/js/main.a6483fb2.js"
-  ]
+    "main.css": "/JeeMocks/static/css/main.6e55f720.chunk.css",
+    "main.js": "/JeeMocks/static/js/main.8c58849e.chunk.js",
+    "main.js.map": "/JeeMocks/static/js/main.8c58849e.chunk.js.map",
+    "runtime~main.js": "/JeeMocks/static/js/runtime~main.20015cd4.js",
+    "runtime~main.js.map": "/JeeMocks/static/js/runtime~main.20015cd4.js.map",
+    "static/js/2.0ec1c9fd.chunk.js": "/JeeMocks/static/js/2.0ec1c9fd.chunk.js",
+    "static/js/2.0ec1c9fd.chunk.js.map": "/JeeMocks/static/js/2.0ec1c9fd.chunk.js.map",
+    "index.html": "/JeeMocks/index.html",
+    "precache-manifest.a4f2b47dae3ad9bf294747c2da20ae3c.js": "/JeeMocks/precache-manifest.a4f2b47dae3ad9bf294747c2da20ae3c.js",
+    "service-worker.js": "/JeeMocks/service-worker.js",
+    "static/css/main.6e55f720.chunk.css.map": "/JeeMocks/static/css/main.6e55f720.chunk.css.map"
+  }
 }

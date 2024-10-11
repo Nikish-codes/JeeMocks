@@ -1,7 +1,6 @@
-// src/App.js
 
 import React, { useState, useEffect } from 'react';
-import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
+import { HashRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import Homepage from './components/Homepage';
 import QuestionBank from './components/QuestionBank';
 import { loadQuestions } from './utils/questionLoader';
