@@ -1,69 +1,26 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import './MockTest.css';
 
 function MockTest({ questions, onTestEnd }) {
-	
-	
-	// ... (previous code)
-
-  // ... (other state variables)
-  const [markedQuestions, setMarkedQuestions] = useState([]);
-
-  // ... (other functions)
-
-  const handleQuestionPaletteClick = (questionIndex) => {
-    setCurrentQuestion(questionIndex);
-    setSelectedAnswer(userResponses[questionIndex]);
-  };
-
-  const handleMarkQuestion = () => {
-    setMarkedQuestions(prevMarked => {
-      if (prevMarked.includes(currentQuestion)) {
-        return prevMarked.filter(index => index !== currentQuestion);
-      } else {
-        return [...prevMarked, currentQuestion];
-      }
-    });
-  };
-
-  // ... (rest of the component code)
-
-  return (
-    <div className="mock-test-container">
-      {/* ... (other sections) */}
-
-      <div className="question-palette">
-        {questions.map((_, index) => (
-          <button
-            key={index}
-            onClick={() => handleQuestionPaletteClick(index)}
-            className={`palette-button ${
-              userResponses[index] !== undefined ? 'answered' : ''
-            } ${markedQuestions.includes(index) ? 'marked' : ''}`}
-          >
-            {index + 1}
-          </button>
-        ))}
-      </div>
-
-      {/* ... (rest of the component code) */}
-
-      <div className="navigation-section">
-        {/* ... (previous buttons) */}
-        <button onClick={handleMarkQuestion}>Mark for Review</button>
-      </div>
-
-      {/* ... (rest of the component code) */}
-    </div>
-  );
-
-	
-	
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [selectedAnswer, setSelectedAnswer] = useState(null);
   const [timeLeft, setTimeLeft] = useState(1800); // 30 minutes in seconds
   const [userResponses, setUserResponses] = useState([]);
+  const [markedQuestions, setMarkedQuestions] = useState([]);
 
+  // Move handleTestEnd here (above its first use)
+  const handleTestEnd = useCallback(() => {
+    const score = userResponses.reduce((acc, response, index) => {
+      if (response === questions[index].correct_answer) {
+        return acc + 1;
+      }
+      return acc;
+    }, 0);
+
+    onTestEnd(score, userResponses);
+  }, [userResponses, questions, onTestEnd]);
+
+  // Use useEffect with handleTestEnd
   useEffect(() => {
     const timer = setInterval(() => {
       setTimeLeft(prevTime => prevTime - 1);
@@ -71,7 +28,7 @@ function MockTest({ questions, onTestEnd }) {
 
     if (timeLeft === 0) {
       clearInterval(timer);
-      handleTestEnd();
+      handleTestEnd();  // Now handleTestEnd is defined before being used
     }
 
     return () => clearInterval(timer);
@@ -92,16 +49,19 @@ function MockTest({ questions, onTestEnd }) {
     setCurrentQuestion(prevQuestion => prevQuestion + 1);
   };
 
-  const handleTestEnd = () => {
-    // Calculate score and pass responses to parent component
-    const score = userResponses.reduce((acc, response, index) => {
-      if (response === questions[index].correct_answer) {
-        return acc + 1;
-      }
-      return acc;
-    }, 0);
+  const handleQuestionPaletteClick = (questionIndex) => {
+    setCurrentQuestion(questionIndex);
+    setSelectedAnswer(userResponses[questionIndex]);
+  };
 
-    onTestEnd(score, userResponses);
+  const handleMarkQuestion = () => {
+    setMarkedQuestions(prevMarked => {
+      if (prevMarked.includes(currentQuestion)) {
+        return prevMarked.filter(index => index !== currentQuestion);
+      } else {
+        return [...prevMarked, currentQuestion];
+      }
+    });
   };
 
   if (!questions || questions.length === 0) {
@@ -109,6 +69,7 @@ function MockTest({ questions, onTestEnd }) {
   }
 
   const question = questions[currentQuestion];
+  const progressPercentage = (currentQuestion / (questions.length - 1)) * 100;
 
   return (
     <div className="mock-test-container">
@@ -153,14 +114,32 @@ function MockTest({ questions, onTestEnd }) {
         ) : (
           <button onClick={handleTestEnd}>Submit</button>
         )}
+        <button onClick={handleMarkQuestion}>Mark for Review</button>
       </div>
       <div className="timer-section">
         Time left: {Math.floor(timeLeft / 60)}:{(timeLeft % 60).toString().padStart(2, '0')}
       </div>
+      <div className="progress-bar">
+        <div
+          className="progress-bar-fill"
+          style={{ width: `${progressPercentage}%` }}
+        ></div>
+      </div>
+      <div className="question-palette">
+        {questions.map((_, index) => (
+          <button
+            key={index}
+            onClick={() => handleQuestionPaletteClick(index)}
+            className={`palette-button ${
+              userResponses[index] !== undefined ? 'answered' : ''
+            } ${markedQuestions.includes(index) ? 'marked' : ''}`}
+          >
+            {index + 1}
+          </button>
+        ))}
+      </div>
     </div>
   );
 }
-
-
 
 export default MockTest;
